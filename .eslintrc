@@ -1,0 +1,39 @@
+{
+    "extends": [
+        "airbnb-base",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "indent": ["error", 4], // Align ESLint's indent rule with Prettier's tab width
+        "prettier/prettier": "error" // Ensure ESLint detects Prettier errors and warnings
+    },
+    "overrides": [
+        {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "plugins": [
+                "@typescript-eslint",
+                "unused-imports",
+                "tailwindcss",
+                "simple-import-sort",
+                "@tanstack/query"
+            ],
+            "extends": [
+                "plugin:tailwindcss/recommended",
+                "airbnb-typescript",
+                "next/core-web-vitals",
+                "plugin:prettier/recommended"
+            ],
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
+            "rules": {
+                "prettier/prettier": "error", // Ensure ESLint detects Prettier errors and warnings
+                "@tanstack/query/exhaustive-deps": "error",
+                "@tanstack/query/no-rest-destructuring": "warn",
+                "@tanstack/query/stable-query-client": "error"
+                // Other rules...
+            }
+        }
+    ]
+}
