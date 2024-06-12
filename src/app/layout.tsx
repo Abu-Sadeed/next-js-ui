@@ -28,7 +28,11 @@ export default function RootLayout({
                 />
             </head>
 
-            <body className={poppins.className}>{children}</body>
+            <body className={`${poppins.className} size-full`}>
+                <div className="flex w-full flex-col justify-center bg-white">
+                    {children}
+                </div>
+            </body>
         </html>
     );
 }
